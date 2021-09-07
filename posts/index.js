@@ -1,7 +1,9 @@
-const express = (require = 'express');
+const express = require('express');
+const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
 
 const app = express();
+app.use(bodyParser.json());
 
 const posts = {};
 
@@ -16,6 +18,8 @@ app.post('/posts', (req, res) => {
     id,
     title,
   };
+
+  res.status(201).send(posts[id]);
 });
 
 app.listen(4000, () => {
