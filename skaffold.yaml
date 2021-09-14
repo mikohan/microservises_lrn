@@ -1,0 +1,70 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: manhee/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+        noCache: false
+        squash: false
+      sync:
+        manual:
+          - dest: .
+            src: 'src/**/*.js'
+    - image: manhee/comments
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+        noCache: false
+        squash: false
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: manhee/event-bus
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+        noCache: false
+        squash: false
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: manhee/moderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+        noCache: false
+        squash: false
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: manhee/posts
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+        noCache: false
+        squash: false
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: manhee/query
+      context: query
+      docker:
+        dockerfile: Dockerfile
+        noCache: false
+        squash: false
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
