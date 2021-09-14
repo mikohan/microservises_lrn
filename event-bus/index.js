@@ -12,10 +12,18 @@ app.post('/events', (req, res) => {
 
   events.push(event);
 
-  axios.post('http://posts-clasterip-srv:4000/events', event);
-  axios.post('http://comments-srv:4001/events', event);
-  axios.post('http://query-srv:4002/events', event);
-  axios.post('http://moderation-srv:4003/events', event);
+  axios.post('http://posts-cluserip-srv:4000/events', event).catch((e) => {
+    console.log(e);
+  });
+  axios.post('http://comments-srv:4001/events', event).catch((e) => {
+    console.log(e);
+  });
+  axios.post('http://query-srv:4002/events', event).catch((e) => {
+    console.log(e);
+  });
+  axios.post('http://moderation-srv:4003/events', event).catch((e) => {
+    console.log(e);
+  });
   res.send({ staus: 'OK' });
 });
 
