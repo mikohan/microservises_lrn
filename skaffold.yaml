@@ -12,8 +12,6 @@ build:
       context: client
       docker:
         dockerfile: Dockerfile
-        noCache: false
-        squash: false
       sync:
         manual:
           - dest: .
@@ -22,8 +20,6 @@ build:
       context: comments
       docker:
         dockerfile: Dockerfile
-        noCache: false
-        squash: false
       sync:
         manual:
           - dest: .
@@ -32,8 +28,6 @@ build:
       context: event-bus
       docker:
         dockerfile: Dockerfile
-        noCache: false
-        squash: false
       sync:
         manual:
           - dest: .
@@ -42,8 +36,6 @@ build:
       context: moderation
       docker:
         dockerfile: Dockerfile
-        noCache: false
-        squash: false
       sync:
         manual:
           - dest: .
@@ -52,8 +44,6 @@ build:
       context: posts
       docker:
         dockerfile: Dockerfile
-        noCache: false
-        squash: false
       sync:
         manual:
           - dest: .
@@ -62,8 +52,6 @@ build:
       context: query
       docker:
         dockerfile: Dockerfile
-        noCache: false
-        squash: false
       sync:
         manual:
           - dest: .
